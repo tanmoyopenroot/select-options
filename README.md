@@ -4,17 +4,19 @@ Build an test app with React, Redux, Redux-Saga. Add test files using Jest and E
 
 ![Peek](gif/peek1.gif)
 
-## Prerequisites
-
-```sh
-sudo apt-get update
-sudo apt-get install npm
-```
-
-## Installation and Usage
+## Quick Overview
 
 ```sh
 git clone https://github.com/tanmoyopenroot/select-options.git
 cd select-options
-npm install
 ```
+
+Install **``` npm install```** to install dependencies.<br>
+Start  dev-server **``` npm run start ```**.<br>
+Runs the app in development mode.<br>
+Open http://localhost:3000 to view it in the browser.
+
+The page will automatically reload if you make changes to the code.<br>
+You will see the build errors and lint warnings in the console.
+
+Live demo: http://select-options.surge.sh/
