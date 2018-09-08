@@ -21,7 +21,12 @@ function* fetchRolesData() {
     rolesHash[id] = role;
   }
 
-  yield put({type: FETCHED_ROLES_DATA, rolesID, rolesHash})
+  const payload = {
+    rolesID,
+    rolesHash,
+  }
+
+  yield put({type: FETCHED_ROLES_DATA, payload})
 }
 
 export function* watchForRolesFetchData() {

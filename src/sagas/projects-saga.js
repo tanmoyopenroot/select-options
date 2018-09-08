@@ -21,7 +21,12 @@ function* fetchProjectsData() {
     projectsHash[id] = project;
   }
 
-  yield put({type: FETCHED_PROJECT_DATA, projectsID, projectsHash})
+  const payload = {
+    projectsID,
+    projectsHash,
+  }
+
+  yield put({type: FETCHED_PROJECT_DATA, payload})
 }
 
 export function* watchForProjectsFetchData() {

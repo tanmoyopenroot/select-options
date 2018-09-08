@@ -21,7 +21,12 @@ function* fetchUserData() {
     usersHash[id] = user;
   }
 
-  yield put({type: FETCHED_USERS_DATA, usersID, usersHash})
+  const payload = {
+    usersID,
+    usersHash
+  }
+
+  yield put({type: FETCHED_USERS_DATA, payload})
 }
 
 export function* watchForUserFetchData() {
