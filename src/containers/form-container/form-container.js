@@ -171,7 +171,7 @@ export class FromContainer extends React.Component {
           Submit
         </SubmitButton>
         {
-          showOutput ?
+          showOutput && !showErr?
             <OutputContainer>
               {submitOutput}
             </OutputContainer>
