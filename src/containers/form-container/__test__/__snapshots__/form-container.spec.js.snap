@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <FormContainer /> Testing FormContainer's props 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FromContainer
+    fetchData={[Function]}
+    projects={
+        Object {
+            "projectsHash": Object {
+              "1": Object {
+                "id": 1,
+                "name": "Trip to space",
+              },
+              "2": Object {
+                "id": 2,
+                "name": "Assembly Ikea furniture",
+              },
+              "3": Object {
+                "id": 3,
+                "name": "Datumize Zentral",
+              },
+            },
+            "projectsID": Array [
+              1,
+              2,
+              3,
+            ],
+          }
+    }
+    roles={
+        Object {
+            "rolesHash": Object {
+              "1": Object {
+                "id": 1,
+                "name": "Admin",
+              },
+              "2": Object {
+                "id": 2,
+                "name": "Editor",
+              },
+              "3": Object {
+                "id": 3,
+                "name": "Viewer",
+              },
+            },
+            "rolesID": Array [
+              1,
+              2,
+              3,
+            ],
+          }
+    }
+    selected={
+        Object {
+            "projects": Object {
+              "set_1": 1,
+              "set_2": 2,
+              "set_3": 3,
+            },
+            "roles": Object {
+              "set_1": 3,
+              "set_2": 2,
+              "set_3": 1,
+            },
+            "users": Object {
+              "set_1": 2,
+              "set_2": 1,
+              "set_3": 3,
+            },
+          }
+    }
+    users={
+        Object {
+            "usersHash": Object {
+              "1": Object {
+                "id": 1,
+                "name": "John Doe",
+              },
+              "2": Object {
+                "id": 2,
+                "name": "Alice",
+              },
+              "3": Object {
+                "id": 3,
+                "name": "Bob",
+              },
+            },
+            "usersID": Array [
+              1,
+              2,
+              3,
+            ],
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        Array [
+          <Connect(SetContainer)
+            setID={1}
+/>,
+          <Connect(SetContainer)
+            setID={2}
+/>,
+          <Connect(SetContainer)
+            setID={3}
+/>,
+        ],
+        null,
+        <styled.button
+          onClick={[Function]}
+>
+          Submit
+</styled.button>,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "setID": 1,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "setID": 2,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "class",
+        "props": Object {
+          "setID": 3,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Submit",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Submit",
+        "type": [Function],
+      },
+      null,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          Array [
+            <Connect(SetContainer)
+              setID={1}
+/>,
+            <Connect(SetContainer)
+              setID={2}
+/>,
+            <Connect(SetContainer)
+              setID={3}
+/>,
+          ],
+          null,
+          <styled.button
+            onClick={[Function]}
+>
+            Submit
+</styled.button>,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "setID": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "setID": 2,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "class",
+          "props": Object {
+            "setID": 3,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Submit",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Submit",
+          "type": [Function],
+        },
+        null,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
