@@ -5,6 +5,9 @@ import rolesReducer from './roles-reducer';
 import projectsReducer from './projects-reducer';
 import selectReducer from './select-reducer';
 
+ /**
+ * Combining the reducers
+ */
 export default combineReducers({
   users: usersReducer,
   roles: rolesReducer,

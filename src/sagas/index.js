@@ -8,6 +8,9 @@ import { watchForRolesFetchData } from './roles-saga';
 import { watchForProjectsFetchData } from './projects-saga';
 import { watchForSelectedData } from './select-saga';
 
+ /**
+ * Combining the sagas
+ */
 export default function* rootSaga() {
   yield all([
     call(watchForUserFetchData),

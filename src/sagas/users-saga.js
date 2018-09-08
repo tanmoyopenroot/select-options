@@ -1,3 +1,8 @@
+/**
+ * Saga for User data
+ * @module sagas/users-saga
+ */
+
 import {
   take,
   fork,
@@ -10,6 +15,9 @@ import {
 } from '../actions/action-types';
 import { getUsers } from '../api';
 
+/**
+ * Generator function for fetching the data
+ */
 function* fetchUserData() {
   const users = getUsers();
   let usersID = [];
@@ -29,6 +37,9 @@ function* fetchUserData() {
   yield put({type: FETCHED_USERS_DATA, payload})
 }
 
+/**
+ * Generator function for takes FETCH_DATA action type
+ */
 export function* watchForUserFetchData() {
   yield take(FETCH_DATA)
   yield fork(fetchUserData)

@@ -1,3 +1,9 @@
+/**
+ * Mocking api by exporting a function get the data
+ * @module api
+ */
+
+
 export const getUsers = () => {
   const users = [
     { id: 1, name: 'John Doe'}, 

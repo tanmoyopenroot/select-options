@@ -1,3 +1,8 @@
+/**
+ * Reducer for select
+ * @module reducers/select-reducers
+ */
+
 import {
   SET_SELECTED_USER,
   SET_SELECTED_ROLE,
@@ -5,6 +10,13 @@ import {
 } from '../actions/action-types';
 import { initSelectedState } from './initial-state';
 
+/**
+ * Reducer function
+ *
+ * @param {Object} [state=initProjectState]
+ * @param {Object} action
+ * @returns
+ */
 const selectReducer = (state = initSelectedState, action) => {
   const { type, setID, id } = action;
   const { users, roles, projects } = state;

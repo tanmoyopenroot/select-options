@@ -1,3 +1,8 @@
+/**
+ * Select data from state for roles
+ * @module store/configure-store
+ */
+
 import {
   compose,
   createStore,
@@ -10,6 +15,10 @@ import rootReducer from '../reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
+/**
+ * Creating redux store with saga as middleware
+ * @returns 
+ */
 const configureStore = () => {
   const store = createStore(
     rootReducer,

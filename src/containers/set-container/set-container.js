@@ -1,3 +1,8 @@
+/**
+ * SetContainer
+ * @module containers/set-container
+ */
+
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -23,6 +28,11 @@ const Header = styled.h2`
   width: 80%;
   margin: 30px auto;
 `;
+
+/**
+ * @class SetContainer
+ * @extends {React.Component}
+ */
 
 export class SetContainer extends React.Component {
   constructor(props) {

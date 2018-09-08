@@ -1,3 +1,8 @@
+/**
+ * SelectComponent
+ * @module components/select-component
+ */
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -56,6 +61,11 @@ const SelectBoxListOption = styled.label.attrs({
   color: ${props => props.color};
   font-weight: ${props => props.weight};
 `;
+
+/**
+ * @class SelectComponent
+ * @extends {React.Component}
+ */
 
 export class SelectComponent extends Component {
   constructor(props) {

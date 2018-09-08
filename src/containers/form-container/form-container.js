@@ -1,3 +1,8 @@
+/**
+ * FormContainer
+ * @module containers/form-container
+ */
+
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -35,6 +40,11 @@ const OutputContainer = styled.div`
   background-color: #fff;
   padding: 20px;
 `;
+
+/**
+ * @class FromContainer
+ * @extends {React.Component}
+ */
 
 export class FromContainer extends React.Component {
   constructor(props) {

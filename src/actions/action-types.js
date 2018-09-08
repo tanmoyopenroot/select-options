@@ -1,3 +1,8 @@
+/**
+ * Action types for redux actions
+ * @module actions/action-types
+ */
+
 export const FETCH_DATA = 'FETCH_DATA';
 export const FETCHED_USERS_DATA = 'FETCHED_USERS_DATA';
 export const FETCHED_ROLES_DATA = 'FETCHED_ROLES_DATA';

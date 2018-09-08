@@ -1,3 +1,8 @@
+/**
+ * Actions for dispatching
+ * @module actions/select-actions
+ */
+
 import { SELECTED_DATA } from './action-types';
 
 export const saveSelectData = (type, set, id) => ({

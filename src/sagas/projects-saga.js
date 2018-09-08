@@ -1,3 +1,8 @@
+/**
+ * Saga for project data
+ * @module sagas/project-saga
+ */
+
 import {
   take,
   fork,
@@ -10,6 +15,9 @@ import {
 } from '../actions/action-types';
 import { getProjects } from '../api';
 
+/**
+ * Generator function for fetching the data
+ */
 function* fetchProjectsData() {
   const projects = getProjects();
   let projectsID = [];
@@ -29,6 +37,9 @@ function* fetchProjectsData() {
   yield put({type: FETCHED_PROJECT_DATA, payload})
 }
 
+/**
+ * Generator function for takes FETCH_DATA action type
+ */
 export function* watchForProjectsFetchData() {
   yield take(FETCH_DATA)
   yield fork(fetchProjectsData)
