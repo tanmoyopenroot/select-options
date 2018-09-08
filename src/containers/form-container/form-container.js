@@ -6,6 +6,7 @@ import SetContainer from '../set-container';
 import { getUsers } from '../../selectors/users-selector';
 import { getRoles } from '../../selectors/roles-selector';
 import { getProjects } from '../../selectors/projects-selector';
+import { getSelectedData } from '../../selectors/selected-selector';
 import { fetchData } from '../../actions/fetch-actions'
 import styled from 'styled-components';
 
@@ -194,7 +195,7 @@ const mapStateToProps = state => ({
   users: getUsers(state),
   roles: getRoles(state),
   projects: getProjects(state),
-  selected: state.selected,
+  selected: getSelectedData(state),
 })
 
 const mapDispatchToProps = {
