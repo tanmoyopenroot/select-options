@@ -142,7 +142,7 @@ describe('Testing <FormContainer />', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  test('Testing SelectComponent\'s functions', () => {
+  test('Testing FormContainer\'s functions', () => {
     wrapper.instance().handleSubmit()
     expect(wrapper.state().errMsg).toEqual('');
     expect(wrapper.state().showErr).toEqual(false);
