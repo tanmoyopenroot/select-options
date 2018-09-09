@@ -95,17 +95,30 @@ const setup = () => {
     },
   }
 
+  const fetchError = {
+    error: false,
+    message: '',
+  }
+
   return {
     users,
     roles,
     projects,
     output,
     selected,
+    fetchError,
   }
 } 
 
 describe('Testing <FormContainer />', () => {
-  const { users, roles, projects, selected, output } = setup();
+  const {
+    users,
+    roles,
+    projects,
+    selected,
+    output,
+    fetchError,
+  } = setup();
     
   const wrapper = shallow(
     <FromContainer
@@ -114,16 +127,29 @@ describe('Testing <FormContainer />', () => {
       projects={projects}
       selected={selected}
       fetchData={fetchData}
+      fetchError={fetchError}
     />,
   )
 
   test('Testing FormContainer\'s props', () => {
     expect(wrapper.length).toEqual(1);
     expect(wrapper.children().length).toBe(4);
-    expect(Object.keys(wrapper.instance().props).length).toEqual(5);
+    expect(Object.keys(wrapper.instance().props).length).toEqual(6);
     expect(wrapper.instance().props.users).toEqual(users);
     expect(wrapper.instance().props.roles).toEqual(roles);
     expect(wrapper.instance().props.projects).toEqual(projects);
+    expect(wrapper.instance().props.fetchError).toEqual(fetchError);
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  test('Testing FormContainer\'s FetchError', () => {
+    expect(wrapper.length).toEqual(1);
+    expect(wrapper.children().length).toBe(4);
+    expect(Object.keys(wrapper.instance().props).length).toEqual(6);
+    expect(wrapper.instance().props.users).toEqual(users);
+    expect(wrapper.instance().props.roles).toEqual(roles);
+    expect(wrapper.instance().props.projects).toEqual(projects);
+    expect(wrapper.instance().props.fetchError).toEqual(fetchError);
     expect(wrapper).toMatchSnapshot();
   })
 
