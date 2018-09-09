@@ -142,17 +142,6 @@ describe('Testing <FormContainer />', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  test('Testing FormContainer\'s FetchError', () => {
-    expect(wrapper.length).toEqual(1);
-    expect(wrapper.children().length).toBe(4);
-    expect(Object.keys(wrapper.instance().props).length).toEqual(6);
-    expect(wrapper.instance().props.users).toEqual(users);
-    expect(wrapper.instance().props.roles).toEqual(roles);
-    expect(wrapper.instance().props.projects).toEqual(projects);
-    expect(wrapper.instance().props.fetchError).toEqual(fetchError);
-    expect(wrapper).toMatchSnapshot();
-  })
-
   test('Testing SelectComponent\'s functions', () => {
     wrapper.instance().handleSubmit()
     expect(wrapper.state().errMsg).toEqual('');
@@ -160,4 +149,15 @@ describe('Testing <FormContainer />', () => {
     expect(wrapper.state().submitOutput).toEqual(JSON.stringify(output));
     expect(wrapper.state().showOutput).toEqual(true);
   });
+
+  test('Testing FormContainer\'s FetchError', () => {
+    const setPropValue = {
+      fetchError: {
+        error: true,
+        message: 'Error while fetching users data.'
+      }
+    }
+    wrapper.setProps(setPropValue);
+    expect(wrapper.children().length).toBe(1);
+  })
 })
