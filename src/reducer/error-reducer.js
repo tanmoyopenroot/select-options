@@ -1,5 +1,5 @@
 /**
- * Reducer for projects
+ * Reducer for errors
  * @module reducers/error-reducers
  */
 
