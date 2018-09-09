@@ -35,3 +35,12 @@ export const initSelectedState = {
   roles: {},
   projects: {},
 }
+
+ /**
+ * Inital Error state
+ */
+export const initErrorState = {
+  usersFetchError: null,
+  rolesFetchError: null,
+  projectsFetchError: null,
+}

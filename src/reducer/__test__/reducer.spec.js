@@ -3,6 +3,7 @@ import {
   initRolesState,
   initProjectState,
   initSelectedState,
+  initErrorState,
 } from '../initial-state';
 import {
   FETCHED_USERS_DATA,
@@ -10,12 +11,16 @@ import {
   FETCHED_PROJECT_DATA,
   SET_SELECTED_USER,
   SET_SELECTED_ROLE,
-  SET_SELECTED_PROJECT
+  SET_SELECTED_PROJECT,
+  FETCHING_ERROR_USERS_DATA,
+  FETCHING_ERROR_ROLES_DATA,
+  FETCHING_ERROR_PROJECTS_DATA,
 } from '../../actions/action-types';
 import usersReducer from '../users-reducer';
 import rolesReducer from '../roles-reducer';
 import projectsReducer from '../projects-reducer';
 import selectReducer from '../select-reducer';
+import errorReducer from '../error-reducer'
 
 const setup = () => {
   const users = {
@@ -58,6 +63,7 @@ describe('Testing Redux Reducers', () => {
     expect(rolesReducer(undefined, {})).toEqual(initRolesState)
     expect(projectsReducer(undefined, {})).toEqual(initProjectState)
     expect(selectReducer(undefined, {})).toEqual(initSelectedState)
+    expect(errorReducer(undefined, {})).toEqual(initErrorState)
   })
 
   test('Testing users reducer', () => {
@@ -155,5 +161,46 @@ describe('Testing Redux Reducers', () => {
     }
 
     expect(selectReducer(initSelectedState, action)).toEqual(expectedProjectSelected);
+  })
+
+  test('Testing error reducer', () => {
+    let expectedError = {
+      usersFetchError: 'Error while fetching users data.',
+      rolesFetchError: null,
+      projectsFetchError: null,
+    }
+
+    let action = {
+      type: FETCHING_ERROR_USERS_DATA,
+      message: 'Error while fetching users data.'
+    }
+
+    expect(errorReducer(initErrorState, action)).toEqual(expectedError);
+
+    expectedError = {
+      usersFetchError: null,
+      rolesFetchError: 'Error while fetching roles data.',
+      projectsFetchError: null,
+    }
+
+    action = {
+      type: FETCHING_ERROR_ROLES_DATA,
+      message: 'Error while fetching roles data.'
+    }
+
+    expect(errorReducer(initErrorState, action)).toEqual(expectedError);
+
+    expectedError = {
+      usersFetchError: null,
+      rolesFetchError: null,
+      projectsFetchError: 'Error while fetching projects data.',
+    }
+
+    action = {
+      type: FETCHING_ERROR_PROJECTS_DATA,
+      message: 'Error while fetching projects data.'
+    }
+
+    expect(errorReducer(initErrorState, action)).toEqual(expectedError);
   })
 })

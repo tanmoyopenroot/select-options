@@ -6,35 +6,47 @@
 import {
   take,
   fork,
-  put
+  put,
+  call,
 } from 'redux-saga/effects';
 
 import {
   FETCH_DATA,
   FETCHED_PROJECT_DATA,
+  FETCHING_ERROR_PROJECTS_DATA,
 } from '../actions/action-types';
 import { getProjects } from '../api';
 
 /**
- * Generator function for fetching the data
+ *Generator function for fetching the data
  */
 function* fetchProjectsData() {
-  const projects = getProjects();
-  let projectsID = [];
-  let projectsHash = {};
+  try {
+    const projects = yield call(getProjects);
+    let projectsID = [];
+    let projectsHash = {};
 
-  for (let project of projects) {
-    const { id } = project;
-    projectsID.push(id);
-    projectsHash[id] = project;
+    for (let project of projects) {
+      const { id } = project;
+      projectsID.push(id);
+      projectsHash[id] = project;
+    }
+
+    const payload = {
+      projectsID,
+      projectsHash,
+    }
+
+    yield put({
+      type: FETCHED_PROJECT_DATA,
+      payload
+    })
+  } catch (errMsg) {
+    yield put({
+      type: FETCHING_ERROR_PROJECTS_DATA,
+      message: errMsg || 'Error while fetching projects data.'
+    })
   }
-
-  const payload = {
-    projectsID,
-    projectsHash,
-  }
-
-  yield put({type: FETCHED_PROJECT_DATA, payload})
 }
 
 /**

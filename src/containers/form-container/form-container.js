@@ -11,6 +11,7 @@ import SetContainer from '../set-container';
 import { getUsers } from '../../selectors/users-selector';
 import { getRoles } from '../../selectors/roles-selector';
 import { getProjects } from '../../selectors/projects-selector';
+import { checkError } from '../../selectors/error-selector';
 import { getSelectedData } from '../../selectors/selected-selector';
 import { fetchData } from '../../actions/fetch-actions'
 import styled from 'styled-components';
@@ -121,6 +122,46 @@ export class FromContainer extends React.Component {
     return false;
   }
 
+  _showForm() {
+    const { showErr, errMsg, showOutput, submitOutput } = this.state;
+    const { users } = this.props;
+    const { usersID } = users;
+
+    return (
+      <Fragment>
+        {
+          usersID.map(id => (
+            <SetContainer
+              key={`set-${id}`}
+              setID={id}
+            />
+          ))
+        }
+        {
+          showErr ?
+            <ErrorContainer>
+              { errMsg }
+            </ErrorContainer>
+          :
+            null
+        } 
+        <SubmitButton
+          onClick={this.handleSubmit}
+        >
+          Submit
+        </SubmitButton>
+        {
+          showOutput && !showErr?
+            <OutputContainer>
+              {submitOutput}
+            </OutputContainer>
+          :
+            null
+        }
+      </Fragment>
+    )
+  }
+
   handleSubmit() {
     const { selected } = this.props;
     const { users, roles, projects } = selected;
@@ -153,40 +194,18 @@ export class FromContainer extends React.Component {
   }
 
   render () {
-    const { showErr, errMsg, showOutput, submitOutput } = this.state;
-    const { users } = this.props;
-    const { usersID } = users;
+    const { fetchError } = this.props;
+    const { error, message } = fetchError;
 
     return (
       <Fragment>
         {
-          usersID.map(id => (
-            <SetContainer
-              key={id}
-              setID={id}
-            />
-          ))
-        }
-        {
-          showErr ?
+          error ?
             <ErrorContainer>
-              { errMsg }
+              {message}
             </ErrorContainer>
           :
-            null
-        } 
-        <SubmitButton
-          onClick={this.handleSubmit}
-        >
-          Submit
-        </SubmitButton>
-        {
-          showOutput && !showErr?
-            <OutputContainer>
-              {submitOutput}
-            </OutputContainer>
-          :
-            null
+            this._showForm()
         }
       </Fragment>
     );
@@ -197,6 +216,7 @@ FromContainer.propTypes = {
   users: PropTypes.object,
   roles: PropTypes.object,
   projects: PropTypes.object,
+  fetchError: PropTypes.object,
   selected: PropTypes.object,
   fetchData: PropTypes.func,
 }
@@ -205,6 +225,7 @@ const mapStateToProps = state => ({
   users: getUsers(state),
   roles: getRoles(state),
   projects: getProjects(state),
+  fetchError: checkError(state),
   selected: getSelectedData(state),
 })
 
